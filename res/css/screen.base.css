@@ -1,0 +1,570 @@
+/* development */
+* {
+    margin: 0; padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+body {
+    font: 85%/1.6 helvetica, arial, sans-serif;
+    position: relative;
+    word-wrap: break-word;
+}
+
+a {
+    color: inherit; text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+li {
+    list-style: none;
+}
+/*~Layout*/
+#wrapper, #header h1, #nav, #posMenu {
+   width: 1080px;
+   margin: 0 auto;
+   padding-left: 10px !important;
+   
+}  
+    #wrapper {
+        position: relative;
+    }
+    
+    #header, #menus {
+        min-width: 1080px;
+    }
+    
+    #content {
+        padding-right: 440px;     
+    }
+    
+    #main {
+        float: left;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        width: 100%;
+    }
+
+    #side {
+        float: left;
+        margin-right: -480px;
+        width: 460px;;
+    }
+/*~header*/
+    #header {
+        background: #ac8;
+    }
+    
+    #header h1 {
+        font-size: 300%; line-height: 120%;
+        padding: 1.2em 0 0 0;
+        color: #f2faf2;
+    }
+    
+    #header h1 a:hover {
+        color: #fdfffd;
+    }
+    
+    #header .beta {
+        font-size: 70%; line-height: 120%;
+        font-style: italic;
+        font-family: serif;
+    }
+    
+    /*~nav*/
+    ul#nav {
+        padding: 0 0 0.4em 0;
+    }
+     
+    #nav li {
+        font-weight: bold; color: #444;
+        display: inline;
+        margin-right: 0.5em;
+    }
+    
+    #nav li input {
+        display: none;
+    }
+    
+    #nav li label {
+        cursor: pointer;
+    }
+    
+    #nav li:hover {
+        border-bottom: 3px solid #290;
+    }
+    
+/*~main*/
+
+#drPlayerTable {
+    clear: both;
+    padding-bottom: 2em;
+    max-height: 550px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+    #drPlayerTable table {
+        width: 100%;
+        position: relative;
+    }
+    
+    #drPlayerTable th {
+        font-size: 70%;
+        line-height: 160%;
+        background: #fec;
+    }
+    
+    #drPlayerTable td {
+        text-align: center;
+        line-height: 250%;
+        border-bottom: 1px solid #f6f6f2;
+        padding: 0 4px;
+    }
+    
+    #drPlayerTable td.nam {
+        text-align: left;
+        text-overflow: ellipsis;
+        max-width: 120px;
+        text-indent: 0.5em;
+        padding-right: 1em;
+    }
+    #drPlayerTable td.order, #drPlayerTable td.ht, #drPlayerTable td.wt, #drPlayerTable td.pos {
+        font-size: 75%;
+        line-height: 250%;
+        color: #666;
+    }
+    
+/*~side*/
+
+#drInfoPlayerName {
+    text-align: center;
+    border-bottom: 3px solid #a2a4a8;
+    width: 60%; margin: 0 auto 0 auto;
+    
+}
+
+    #drInfoPlayerName h2 {
+        font-size: 140%; line-height: 220%;
+    }
+
+#drInfoPlayerInfo {
+    width: 320px; padding: 1em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+    .playerAttributes {
+        color: #888;
+    }
+    
+    .playerCombineInline {
+        margin: 0.5em auto 0 auto;
+    }
+    
+    .playerCombineInline thead {
+        font-size: 70%; line-height: 100%;
+        color: #333;
+    }
+    
+    .playerCombineInline tbody td {
+        padding: 0.5em;
+        font-weight: bold;
+    }
+    
+textarea#draftmanNotepad {
+    display: block;
+    width: 320px; margin: 2em 0 2em 80px;
+    padding: 4px;
+    font: 114%/140% normal helvetica, arial, sans-serif;
+    border: 1px solid #888;
+    height: 300px;
+    color: #333;
+}
+
+#tablePlayerBars {
+    font-size: 114%; line-height: 160%;
+    padding: 0.5em;
+    width: 420px; margin: 0 auto;
+}
+
+    #tablePlayerBars td {
+        padding: 0.2em 0.5em;
+    }
+    
+    #tablePlayerBars .bar_name {
+        text-align: right;
+        width: 140px;
+    }
+    #tablePlayerBars .bar_draw {
+        width: 140px;
+    }
+    
+    .bar_draw p {
+        width: 100%; height: 1em;
+        line-height: 100%;
+        border: 1px solid #889;
+        background: #f9fcff;
+        position: relative;
+    }
+    
+    .bar_overlay {
+        position: absolute;
+        width: 100%; height: 1em;
+        z-index: 1000;
+        opacity: 0.8;
+        background: repeating-linear-gradient(
+            to right, transparent, transparent 23.5%, #999 25%
+        );
+    }
+    
+    .lfa_bar {
+        position: absolute;
+        display: block;
+        height: 1em;
+        width: 100%;
+        
+    }
+    
+    .lfa_bar_future {
+        background: #fea;
+        height: 1em; 
+        white-space: nowrap;
+        display: block;
+        position: absolute;
+        
+    }
+
+    .lfa_bar_current {
+        background: #fb4; 
+        font-weight: bold;
+        height: 1em; font-size: 85%; 
+        height: 100%; line-height: 140%;
+        white-space: nowrap;
+        display: block;
+        position: absolute;
+        /*text-indent: 0.1em;*/
+        text-indent: 150%;
+        overflow: hidden;
+    }
+    
+    .bar_draw .bar_fill {
+        height: 1em; background: #68a;
+        text-indent: 150%;
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+    }
+    
+  
+    
+    .barsLFA .bar_draw .bar_fill {
+        position: absolute; z-index: 500;
+        opacity: 0.05;
+        border-radius: 4px;
+    }
+    
+    #tablePlayerBars:hover .barsLFA .bar_draw .bar_fill {
+        opacity: 0.6;
+        background-color: #36a;
+    }
+    
+
+    
+    #tablePlayerBars .barsLFA .bar_value_draft {
+        display: none;
+    }
+        .barsLFA .bar_value_draft {
+            font-weight: bold;
+            font-size: 85%; line-height: 100%;
+            color: #003;
+        }
+    
+    #tablePlayerBars .noBarsLFA .bar_value_lfa {
+        display: none;
+    }
+        .bar_value_lfa {
+            color: #900;
+            font-size: 85%; line-height: 100%;
+            font-weight: bold;
+        }
+    
+        .divider {
+            color:#966;
+        }
+    #tablePlayerBars:hover .barsLFA .bar_value_draft {
+        display: inline;
+    }
+    
+    #tablePlayerBars:hover .barsLFA .bar_value_lfa{
+        display: none;
+    }
+    
+    
+    
+    
+/*~footer*/
+
+#footer {
+    clear: both;
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+#footer dl>*{
+    display: inline;
+    margin-right: 0.25em;
+}
+    #footer dt {
+        font-weight: bold;
+    }
+    
+    #footer dd {
+        margin-right: 1em;
+    }
+    
+#footer > p {
+    color: #666; font-size: 85%; line-height: 200%;
+}
+
+#footer >p a {
+    color: #888;
+}
+
+#footer > p a:hover {
+    text-decoration: underline;
+}
+
+/*~menu*/
+#menus {
+    background: #fafafa;
+    border-bottom: 2px solid #eee;
+}
+
+#posMenu li {
+    float: left;
+}
+    #posMenu li a {
+        display: block;
+        padding: 0 0.5em 0 0.5em;
+    }
+    #posMenu li a:hover {
+        background: #e0e6e0; 
+    }
+    #posMenu li.active {
+        background: #390; color: #f3faf3;
+        position: relative; top: 2px;
+        margin: 0 0.2em;
+    }
+    
+    #posMenu li.active a:hover {
+        background: #5a4; 
+    }
+
+/*~draft table*/
+    
+
+tr.selected {
+    background: #def;
+    font-weight: bold;
+    opacity: 1 !important;
+}
+    tr.reject {
+        opacity: 0.5;
+    }
+    tr.reject.selected {
+        color: #888;
+    }
+
+    tr.mark {
+        background: #ffd;
+    }
+
+    tr.supermark {
+        background: #fda;
+    }
+    
+    tr.drafted {
+        background: #daa; color: #844;
+    }
+    
+    .combine_lo {
+        color: #7c5;
+    }
+
+    .combine_hi {
+        color: #36c;
+    }
+
+    .combine_top {
+        color: #c53;
+    }
+
+/*~infopane*/
+table#playerList.singlePosG .pos {
+    display: none;
+}
+
+#tablePlayerBars .highlight_correlation  {
+    background: #fc6;
+    border-radius: 6px;
+}
+
+#drPlayerTable .highlight_correlation {
+    background: #e30; color: #faf3f0;
+}
+img.icon {
+    width: 16px; height: auto;
+    vertical-align: middle;
+}
+
+td.notes, td.interview {
+    min-width: 16px;
+}
+
+
+/*~~filtermenus*/
+#filterMenus {
+    clear: both;
+    font-size: 100%; line-height: 160%;
+}
+
+#filterMenus ul {
+    float: left; 
+    word-wrap: normal;
+    margin: 0 0 0.5em 0;
+}
+
+    #showOnlyMenu {
+        margin-right: 0.5em !important;
+    }
+#filterMenus ul li {
+    float: left;
+}
+
+#filterMenus li a {
+    display: block;
+    text-align: center;
+    padding: 0 0.3em;
+    margin: 0 0.1em;
+    border-radius: 4px;
+}
+    #filterMenus li a:hover {
+        background: #f0f0f0;
+    }
+    
+    #showOnlyMenu li.active a {
+        background: #47a; color: #f0f0fa;
+
+    }
+    
+    #gradeMenu li.active a {
+        background: #a32; color: #f0e0e0;
+    }
+    
+#filterMenus h4 {
+    float: left; margin-right: 0.2em; margin-left: 0.5em;
+    font-size: 85%; line-height: 188%;
+    color: #930;
+}
+
+#filterMenus h4:before {
+    content: '\bb\a0';
+}
+/*~~msgBox */
+
+#msgBox.active {
+    position: absolute; top: 2em;
+    width: 80%; left: 10%; right: 10%;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 2em;
+    z-index: 9999;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+#msgBox textarea {
+    width: 80%; margin: 1em auto;
+    padding: 0.5em; height: 120px;
+    display: block;
+}
+
+#msgBox .button {
+    float: right;
+    margin-right: 10%;
+}
+
+/*~~mainmsg */
+
+body.hasMainmsg #extraMenu, body.hasMainmsg #filterMenus {
+    display: none;
+}
+
+#mainmsg {
+    clear: both;
+}
+#mainmsg>ul li {
+    margin-left: 2em;
+}
+
+#mainmsg>h3 {
+    margin: 0.5em 0;
+}
+
+#mainmsg>dl>dt {
+    font-family: monospace;
+    color: #666;
+    line-height: 200%;
+}
+
+#mainmsg>dl>dd {
+    margin: 0 0 1em 2em;
+}
+
+#mainmsg>dl>dd p {
+    margin: 1.5em 0;
+}
+
+#mainmsg>dl>dd p:first-child {
+    margin-top: 0;
+}
+
+/*~~general styles */
+
+p.success { color: #090; }
+p.error { color: #c00; }
+.faded {
+    opacity: 0.2;
+}
+
+
+.button {
+    padding: 0.4em 0.5em;
+    background: #f0f0f0; color: #666;
+}
+
+.button:hover {
+    background: #f6f6f6; color: #333;
+}
+#extraMenu {
+    float: right; 
+    margin: 0 1em 0.5em 0;
+}
+
+.main_red_flag {
+    height: 16px;
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+/*~~clearfix*/
+
+#menus:after, #content:after { /*clearfix*/
+        clear: both;
+        content: '';
+        display: block;
+        height: 0;
+    }
+    
+    
